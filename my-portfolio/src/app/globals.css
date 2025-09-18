@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  /* INFO: On peut les utiliser après dans les classes ex:
+  --color-mint-500: oklch(0.72 0.11 178); 
+  pourra ensuite être utilisé dans les classes bg-mint-500, text-mint-500, or fill-mint-500
+  ou en mode CSS : style="background-color: var(--color-mint-500)
+  L'intérêt des themes et que ça crée des nouvelles classes tailwind contrairement au root qui crée juste des vriables CSS" */
+  --color-background: var(--background);
+  --color-background-navbar: var(--background-navbar);
+  --color-border: var(--border);
+  --color-text-dark: var(--text-dark);
+  --color-text-clear: var(--text-clear);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* --font-inter: var(--font-inter); */
+}
+
+@media (prefers-color-scheme: dark) {
+  /* INFO: Variables CSS */
+  :root {
+    --background: #09121d /* #111113*/;
+    --background-navbar: #0e1926 /*#0c041f*/;
+    --background-component-title: #0a2748;
+    --background-component: #033e77;
+    --border: #124c89;
+    --text-dark: #72b7ff;
+    --text-clear: #dae9f9 /*#f0eeff*/;
+  }
+}
+
+/* Navbar */
+.navbar {
+  @apply shadow-xl;
+  background-color: var(--background-navbar);
+  border-color: var(--border);
+}
+
+/* Body */
+body {
+  background: var(--background);
+  color: var(--text-clear);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  @apply w-full mx-auto px-20 md:pl-85 py-20;
+}
+.main-title {
+  @apply font-bold text-5xl mb-5;
+}
