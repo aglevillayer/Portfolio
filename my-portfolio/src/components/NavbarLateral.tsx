@@ -5,12 +5,21 @@ import { FaGithub } from "react-icons/fa";
 import { MdContactMail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { TbSunMoon } from "react-icons/tb";
+import { useRouter } from "next/navigation";
 
 export default function NavbarLateral({ className }: { className: string }) {
+  const router = useRouter();
+
   // TODO: fonctions à passer dans les props pour que le parent les définisse ? ou on va chercher le # ?
-  function handleAboutMe() {}
-  function handleProjects() {}
-  function handleStack() {}
+  function handleAboutMe() {
+    router.push("#about-me");
+  }
+  function handleProjects() {
+    router.push("#projects");
+  }
+  function handleStack() {
+    router.push("#stack");
+  }
 
   return (
     <nav

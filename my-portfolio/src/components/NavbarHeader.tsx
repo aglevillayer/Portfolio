@@ -10,7 +10,7 @@ import NavBarDropDown from "./NavBarDropDown";
 export default function NavbarHeader({ className }: { className: string }) {
   return (
     <div className={className}>
-      <nav className="navbar border-b fixed w-full flex py-2 items-center">
+      <nav className="navbar border-b fixed top-0 w-full flex py-2 items-center">
         <NavBarDropDown />
         <p className="mr-auto text-text-dark px-10">Anne-Gaëlle Levillayer</p>
         <Link

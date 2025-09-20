@@ -1,14 +1,26 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function NavbarFooter({ className }: { className: string }) {
-  function handleAboutMe() {}
-  function handleProjects() {}
-  function handleStack() {}
+  const router = useRouter();
+
+  function handleAboutMe() {
+    router.push("#about-me");
+  }
+  function handleProjects() {
+    router.push("#projects");
+  }
+  function handleStack() {
+    router.push("#stack");
+  }
 
   //TODO: mettre des hover sur les boutons
 
   return (
-    <div className={`${className} navbar border-t flex flex-row py-4 w-full`}>
+    <nav
+      className={`${className} navbar border-t flex flex-row py-4 w-full fixed bottom-0`}
+    >
       <button className="mx-auto" onClick={handleAboutMe}>
         About me
       </button>
@@ -18,6 +30,6 @@ export default function NavbarFooter({ className }: { className: string }) {
       <button className="mx-auto" onClick={handleStack}>
         Stack
       </button>
-    </div>
+    </nav>
   );
 }
