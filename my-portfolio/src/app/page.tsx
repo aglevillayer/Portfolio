@@ -12,30 +12,45 @@ import reactPicture from "../../public/technos/front/react.webp";
 import tailwindPicture from "../../public/technos/front/tailwind.webp";
 import mongodbPicture from "../../public/technos/back/mongodb.svg";
 import postgresqlPicture from "../../public/technos/back/postgresql.svg";
+import apolloPicture from "../../public/technos/back/apollo.png";
 import { ITechno } from "./interfaces";
 
 const projects = [
   {
     id: 1,
     title: "Ulteams",
-    description: "An app to manage all your sport clubs",
-    content: "Roles management",
-    stack: ["TypeScript", "NodeJS", "Keystone", "React", "ViteJS"],
+    description: "An app to manage your sport club",
+    jobs: ["Roles management", "mini-game"],
+    stack: [
+      "TypeScript",
+      "NodeJS",
+      "Keystone",
+      "PostgreSQL",
+      "React",
+      "ViteJS",
+    ],
   },
   {
     id: 2,
     title: "Portfolio",
     description: "A web site to show my skills and projects",
-    content: "Development from scratch",
-    stack: ["TypeScript", "NodeJS", "NextJS"],
+    jobs: ["Development from scratch"],
+    stack: ["TypeScript", "NodeJS", "NextJS", "Tailwind"],
   },
   {
     id: 3,
     title: "Ultifit",
     description:
       "An app to manage fitness preparation for ultimate athletes and others",
-    content: "Devlopment from scratch",
-    stack: ["TypeScript", "NodeJS", "Keystone", "React", "ViteJS"],
+    jobs: ["Development from scratch"],
+    stack: [
+      "TypeScript",
+      "NodeJS",
+      "Keystone",
+      "PostgreSQL",
+      "React",
+      "ViteJS",
+    ],
   },
 ];
 
@@ -57,6 +72,7 @@ const technoBackend: ITechno[] = [
   { name: "PostegreSQL", img: postgresqlPicture.src },
   // { name: "Keystone", img: "" },
   { name: "MongoDB", img: mongodbPicture.src },
+  { name: "Apollo", img: apolloPicture.src },
 ];
 const technoFrontend: ITechno[] = [
   { name: "NextJS", img: nextjsPicture.src },
@@ -68,68 +84,82 @@ const technoFrontend: ITechno[] = [
 export default function Home() {
   return (
     <div className="main-container">
+      {/*** Introduction ***/}
       <section className="section-container flex flex-col items-center lg:flex-row lg:items-stretch gap-15">
         <div className="basis-2/3">
-          <h1 className="section-title">Anne-Gaëlle Levillayer</h1>
-          <p className="mb-5">Hey there ! 👋🏼</p>
-          <p>Je suis Anne-Gaëlle,</p>
-          <p>conceptrice-développeuse d'applications web et mobile</p>
+          <h1 className="section-title">Full-stack applications developer</h1>
+          <p className="mb-5 text-2xl hover:text-3xl">Hey there ! 👋🏼</p>
+          <p>I'm Anne-Gaëlle,</p>
+          <p>
+            Engineer from INSA retrained in the web and mobile applications
+            development.
+          </p>
         </div>
         <Image
           src={profilePicture}
-          alt="profile_picture"
-          className="rounded-full w-3xs"
+          alt="profile-picture"
+          className="rounded-full w-3xs border-2 border-tile_b hover:border-main_b"
         />
       </section>
+
+      {/*** About me ***/}
       <section id="about-me" className="section-container">
         <h1 className="section-title">About me</h1>
-        <p className="mb-5">Hey there ! 👋🏼</p>
+        <p className="mb-5 text-2xl hover:text-3xl">Hey there ! 👋🏼</p>
+        <p>
+          Once upon a time, a woman, used to work in automation, decided to
+          listen her curiosity and discovered the computer engineering domain.
+          Therefore, she changed her whole world. Her name is Anne-Gaëlle and
+          guess what? It's me! Indeed, I'm a fresh and young developer, who love
+          working and learning more about this wonderfull world that I'm still
+          discovering.
+          {/* Je m'appelle Anne-Gaëlle et je suis une jeune
+          développeuse tout juste reconvertie. Appartenant initialement à
+          l'automatisme, j'ai décidé d'écouter ma curiosité et me suis lancée
+          dans le monde de l'informatique. */}
+        </p>
         <p></p>
       </section>
+
+      {/*** My projects ***/}
       <section id="projects" className="section-container">
         <h1 className="section-title">My projects</h1>
         <div className="grid grid-cols-1 2xl:grid-cols-2 gap-x-4 gap-y-4 mt-4 mb-12 list-none">
-          {/* //TODO: grid avec mes cards de projet*/}{" "}
           {projects.map((project) => (
             <CardProject
               key={project.id}
               title={project.title}
               description={project.description}
-              content={project.content}
+              jobs={project.jobs}
               stack={project.stack}
             />
           ))}
         </div>
       </section>
+
+      {/*** My stack ***/}
       <section id="stack" className="section-container">
         <h1 className="section-title">My stack</h1>
         <div className="flex gap-3 flex-col xl:flex-row">
           <div className="stack-container">
-            <h3 className=" text-title-card text-2xl mb-5">Languages</h3>
-            <div className="flex flex-row gap-2 mb-5">
-              {/* //TODO: grid avec mes cards de projet*/}
+            <h3 className="card-title">Languages</h3>
+            <div className="flex flex-row gap-2">
               {technoLanguages.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}
             </div>
           </div>
           <div className="stack-container">
-            <h3 className=" text-title-card text-2xl mb-5">
-              Développeuse Backend
-            </h3>
+            <h3 className="card-title">Backend Developer</h3>
             <div className="flex flex-row gap-2">
-              {/* //TODO: grid avec mes cards de projet*/}
               {technoBackend.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}
             </div>
           </div>
           <div className="stack-container">
-            <h3 className=" text-title-card text-2xl mb-5">
-              Développeuse Frontend
-            </h3>
+            <h3 className="card-title">Frontend Developer</h3>
             <div className="flex flex-row gap-2">
-              {/* //TODO: grid avec mes cards de projet*/}
               {technoFrontend.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}

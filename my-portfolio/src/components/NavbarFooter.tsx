@@ -19,15 +19,24 @@ export default function NavbarFooter({ className }: { className: string }) {
 
   return (
     <nav
-      className={`${className} navbar border-t flex flex-row py-4 w-full fixed bottom-0`}
+      className={`${className} navbar border-t flex flex-row w-full fixed bottom-0 h-13`}
     >
-      <button className="mx-auto" onClick={handleAboutMe}>
+      <button
+        className="basis-1/3 hover:text-tile_text hover:text-2xl"
+        onClick={handleAboutMe}
+      >
         About me
       </button>
-      <button className="mx-auto" onClick={handleProjects}>
+      <button
+        className="basis-1/3 hover:text-tile_text hover:text-2xl"
+        onClick={handleProjects}
+      >
         Projects
       </button>
-      <button className="mx-auto" onClick={handleStack}>
+      <button
+        className="basis-1/3 hover:text-tile_text hover:text-2xl"
+        onClick={handleStack}
+      >
         Stack
       </button>
     </nav>

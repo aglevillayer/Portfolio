@@ -27,16 +27,19 @@ export default function NavBarDropDown() {
   }, []);
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <button onClick={toggleDropDownMenu} className="px-5">
+    <div className="relative flex content-center" ref={dropdownRef}>
+      <button
+        onClick={toggleDropDownMenu}
+        className="px-5 hover:text-tile_text"
+      >
         <IoSettingsOutline size={25} />
       </button>
       {isOpen && (
-        <div className="absolute top-10 w-[70px] rounded-br-3xl border-b border-r border-border bg-background-navbar flex flex-col align-items">
-          <button className="block px-5 py-3 w-full text-center">
+        <div className="navbar absolute top-9 w-[70px] rounded-br-3xl border-b border-r flex flex-col align-items">
+          <button className="flex px-5 py-3 w-full text-center hover:text-tile_text">
             <TbSunMoon size={25} />
           </button>
-          <button className="block px-5 py-3 w-full text-center text-[25px]">
+          <button className="flex px-5 py-3 w-full text-center text-[25px]">
             🇬🇧
           </button>
         </div>

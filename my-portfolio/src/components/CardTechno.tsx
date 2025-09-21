@@ -8,7 +8,7 @@ export default function CardTechno({ techno }: { techno: ITechno }) {
 
   return (
     <div
-      className="border border-border rounded-xl bg-background-navbar p-2 text-text-dark flex flex-col items-center w-22 h-20"
+      className="border border-tile_b rounded-2xl bg-card_bg hover:bg-tile_bg p-2 text-tile_text flex flex-col items-center w-22 h-20 text-xs hover:text-sm"
       onClick={handleCardTechno}
     >
       <Image
@@ -18,7 +18,7 @@ export default function CardTechno({ techno }: { techno: ITechno }) {
         width={30}
         height={30}
       />
-      <p className="text-xs">{techno.name}</p>
+      <p>{techno.name}</p>
     </div>
   );
 }
