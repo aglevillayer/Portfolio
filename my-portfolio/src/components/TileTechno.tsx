@@ -7,7 +7,7 @@ export default function TileTechno({ techno }: { techno: string }) {
 
   return (
     <button
-      className="border border-tile_b rounded-4xl bg-transparent text-tile_text text-xs px-3 py-1 hover:bg-card_bg"
+      className="border border-tile_b rounded-4xl bg-transparent text-tile_text text-xs px-3 py-1 hover:bg-tile_bg"
       onClick={() => {
         handleTechno(techno);
       }}

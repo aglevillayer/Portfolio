@@ -8,8 +8,6 @@ export default function NavBarDropDown() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  console.log(isOpen);
-
   function toggleDropDownMenu() {
     setIsOpen(!isOpen);
   }

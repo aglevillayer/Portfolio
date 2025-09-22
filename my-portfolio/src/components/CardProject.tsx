@@ -16,7 +16,7 @@ export default function CardProject({
   stack: string[];
 }) {
   return (
-    <div className="border border-main_b rounded-xl bg-navbar_bg hover:bg-tile_bg p-5 flex flex-col gap-3 ">
+    <div className="border-2 border-light_main_b rounded-xl bg-navbar_bg hover:border-main_b hover:shadow-project_shadow p-5 flex flex-col gap-3 ">
       <div className="mr-5 grow flex-2/3">
         <p className="card-title">{title}</p>
         <div className="flex flex-row flex-wrap gap-1 mb-3">

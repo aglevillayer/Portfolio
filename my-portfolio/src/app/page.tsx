@@ -82,11 +82,11 @@ export default function Home() {
             development.
           </p>
         </div>
-        <div className="border-2 shadow-lg shadow-tile_b border-tile_b hover:border-main_b hover:shadow-main_b rounded-full">
+        <div className="content-center">
           <Image
             src={profilePicture}
             alt="profile-picture"
-            className="rounded-full w-3xs"
+            className="rounded-full w-3xs border-2 shadow-profilePicture_shadow border-tile_b hover:border-main_b hover:shadow-main_b"
           />
         </div>
       </section>
@@ -129,7 +129,6 @@ export default function Home() {
       {/*** My stack ***/}
       <section id="stack" className="section-container">
         <h1 className="section-title">My stack</h1>
-        {/* <div className="flex gap-3 flex-col xl:flex-row flex-wrap"> */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
           <div className="stack-container">
             <h3 className="card-title">Languages</h3>
@@ -165,8 +164,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section-container text-sm text-main_text">
+      <section className="section-container text-sm text-main_text flex flex-col md:flex-row justify-between gap-5">
         <p>Made with 💜 and 🍪 by Anne-Gaëlle</p>
+        <p>© 2025 All Rights Reserved</p>
       </section>
     </div>
   );

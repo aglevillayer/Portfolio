@@ -9,7 +9,11 @@
   --color-tile_bg: var(--tile-background);
   /* Border */
   --color-main_b: var(--main-border);
+  --color-light_main_b: var(--light-main-border);
   --color-tile_b: var(--tile-border);
+  --shadow-project_shadow: 0px 0px 30px rgba(217, 70, 239, 25);
+  --shadow-techno_shadow: 0px 0px 15px rgba(217, 70, 239, 25);
+  --shadow-profilePicture_shadow: 0px 0px 20px rgba(155, 135, 245, 25);
   /* Text */
   --color-card_title: var(--card-title);
   --color-tile_text: var(--tile-text);
@@ -25,20 +29,19 @@
   /* INFO: Variables CSS */
   :root {
     /** Background colors **/
-    /* NOTE: utile le main ? puisque gradient ? */
-    --main-background: rgb(13, 5, 14);
+    --main-background: #0d050e;
     --navbar-background: #0d0110;
     --card-background: #0d0110;
     --tile-background: #38123d;
 
     /** Border color **/
     --main-border: #d946ef;
+    --light-main-border: #38123d;
     --tile-border: #9b87f5;
 
     /** Text colors **/
     --card-title: #d946ef;
     --tile-text: #9b87f5;
-    --navbar-text: ; /* NOTE: même que ...? */
     --main-text: #dccaf2;
   }
 }
@@ -49,14 +52,9 @@ body {
 }
 
 .main-container {
-  @apply w-full mx-auto px-20 pt-10 pb-14 md:pl-85;
+  @apply w-full mx-auto px-10 pt-10 pb-14 md:pl-75 xl:pl-85 xl:pr-30;
   background: #38123d;
-  background: radial-gradient(
-    circle,
-    rgba(56, 18, 61, 1) 0%,
-    rgba(33, 16, 36, 1) 20%,
-    rgb(13, 5, 14) 50%
-  );
+  background: radial-gradient(circle, #38123d 0%, #211024 20%, #0d050e 50%);
 }
 
 .section-container {
@@ -64,7 +62,7 @@ body {
 }
 
 .stack-container {
-  @apply bg-card_bg pt-3 pb-8 px-5 rounded-2xl border border-main_b flex-1/3 flex flex-col text-center items-center;
+  @apply bg-card_bg pt-3 pb-8 px-5 rounded-2xl border-2 border-light_main_b flex-1/3 flex flex-col text-center items-center;
 }
 .cardTechno-container {
   @apply flex flex-row flex-wrap justify-center gap-2;
