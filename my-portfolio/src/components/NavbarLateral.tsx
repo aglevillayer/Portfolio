@@ -23,16 +23,17 @@ export default function NavbarLateral({ className }: { className: string }) {
 
   return (
     <nav
-      className={`${className} navbar border-r fixed min-h-full p-10 md:flex md:flex-col text-center`}
+      className={`${className} navbar border-r fixed min-h-full p-10 text-center md:flex md:flex-col`}
     >
-      <div className="flex flex-row w-full mb-20 text-4xl ">
+      <div className="flex flex-row w-full text-4xl mb-15 grow-1">
         <button className="mx-auto hover:text-tile_text">
           <TbSunMoon />
         </button>
         <button className="mx-auto">🇬🇧</button>
       </div>
-      <div className="flex flex-col grow gap-y-30">
-        <div className="flex flex-col gap-y-3">
+
+      <div className="flex flex-col grow-9">
+        <div className="flex flex-col gap-y-3 mb-10">
           <h1 className="text-xl text-card_title font-bold">
             Anne-Gaëlle Levillayer
           </h1>
@@ -40,7 +41,7 @@ export default function NavbarLateral({ className }: { className: string }) {
             Full-stack applications developer
           </p>
         </div>
-        <div className="flex flex-col gap-y-5 font-bold text-xl">
+        <div className="flex flex-col gap-y-5 font-bold text-xl grow">
           <button
             onClick={handleAboutMe}
             className="hover:text-2xl hover:text-tile_text"
@@ -61,6 +62,7 @@ export default function NavbarLateral({ className }: { className: string }) {
           </button>
         </div>
       </div>
+
       <div className="flex flex-row w-full">
         <Link
           className="mx-auto pr-4 border-r hover:text-tile_text hover:border-main_text"
@@ -78,7 +80,7 @@ export default function NavbarLateral({ className }: { className: string }) {
         </Link>
         <Link
           className="mx-auto hover:text-tile_text"
-          href="/skills"
+          href="mailto:levillayer.ag@mail.com"
           target="_blank"
         >
           <MdContactMail size={30} />

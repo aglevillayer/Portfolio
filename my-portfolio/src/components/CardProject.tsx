@@ -16,8 +16,8 @@ export default function CardProject({
   stack: string[];
 }) {
   return (
-    <div className="border border-main_b rounded-xl bg-navbar_bg hover:bg-tile_bg p-5 flex flex-row">
-      <div className="mr-5 grow">
+    <div className="border border-main_b rounded-xl bg-navbar_bg hover:bg-tile_bg p-5 flex flex-col gap-3 ">
+      <div className="mr-5 grow flex-2/3">
         <p className="card-title">{title}</p>
         <div className="flex flex-row flex-wrap gap-1 mb-3">
           {stack.map((stack, id) => (
@@ -33,14 +33,8 @@ export default function CardProject({
           ))}
         </ul>
       </div>
-      <div className="basis-1/4">
-        <Image
-          src={ulteamsImg}
-          alt="ulteams"
-          width={150}
-          height={350}
-          className="rounded-2xl"
-        />
+      <div className="flex justify-center">
+        <Image src={ulteamsImg} alt="ulteams" className="rounded-2xl" />
       </div>
     </div>
   );

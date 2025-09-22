@@ -4,12 +4,10 @@ import { MdContactMail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import NavBarDropDown from "./NavBarDropDown";
 
-//TODO: mettre des hover sur les boutons
-
 export default function NavbarHeader({ className }: { className: string }) {
   return (
     <div className={className}>
-      <nav className="navbar border-b fixed top-0 w-full flex h-11 items-center">
+      <nav className="navbar w-full border-b fixed top-0 flex h-11 items-center opacity-80">
         <NavBarDropDown />
         <p className="mr-auto pl-2 text-xl whitespace-nowrap truncate">
           Anne-Gaëlle Levillayer
@@ -29,7 +27,7 @@ export default function NavbarHeader({ className }: { className: string }) {
           <FaGithub size={25} />
         </Link>
         <Link
-          href="/skills"
+          href="mailto:levillayer.ag@mail.com"
           target="_blank"
           className="px-5 hover:text-tile_text"
         >

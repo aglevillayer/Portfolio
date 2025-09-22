@@ -13,6 +13,7 @@ import tailwindPicture from "../../public/technos/front/tailwind.webp";
 import mongodbPicture from "../../public/technos/back/mongodb.svg";
 import postgresqlPicture from "../../public/technos/back/postgresql.svg";
 import apolloPicture from "../../public/technos/back/apollo.png";
+import dockerPicture from "../../public/technos/devops/docker.svg";
 import { ITechno } from "./interfaces";
 
 const projects = [
@@ -21,21 +22,14 @@ const projects = [
     title: "Ulteams",
     description: "An app to manage your sport club",
     jobs: ["Roles management", "mini-game"],
-    stack: [
-      "TypeScript",
-      "NodeJS",
-      "Keystone",
-      "PostgreSQL",
-      "React",
-      "ViteJS",
-    ],
+    stack: ["Keystone", "React", "ViteJS"],
   },
   {
     id: 2,
     title: "Portfolio",
     description: "A web site to show my skills and projects",
     jobs: ["Development from scratch"],
-    stack: ["TypeScript", "NodeJS", "NextJS", "Tailwind"],
+    stack: ["TypeScript", "NextJS", "Tailwind"],
   },
   {
     id: 3,
@@ -43,14 +37,7 @@ const projects = [
     description:
       "An app to manage fitness preparation for ultimate athletes and others",
     jobs: ["Development from scratch"],
-    stack: [
-      "TypeScript",
-      "NodeJS",
-      "Keystone",
-      "PostgreSQL",
-      "React",
-      "ViteJS",
-    ],
+    stack: ["Keystone", "React", "ViteJS"],
   },
 ];
 
@@ -68,11 +55,10 @@ const technoLanguages: ITechno[] = [
 ];
 const technoBackend: ITechno[] = [
   { name: "NodeJS", img: nodejsPicture.src },
-  //{ name: "Apollo", img: "" },
+  { name: "Apollo", img: apolloPicture.src },
   { name: "PostegreSQL", img: postgresqlPicture.src },
   // { name: "Keystone", img: "" },
   { name: "MongoDB", img: mongodbPicture.src },
-  { name: "Apollo", img: apolloPicture.src },
 ];
 const technoFrontend: ITechno[] = [
   { name: "NextJS", img: nextjsPicture.src },
@@ -80,13 +66,14 @@ const technoFrontend: ITechno[] = [
   { name: "React", img: reactPicture.src },
   { name: "Tailwind", img: tailwindPicture.src },
 ];
+const technoDevOps: ITechno[] = [{ name: "Docker", img: dockerPicture.src }];
 
 export default function Home() {
   return (
     <div className="main-container">
       {/*** Introduction ***/}
       <section className="section-container flex flex-col items-center lg:flex-row lg:items-stretch gap-15">
-        <div className="basis-2/3">
+        <div className="flex-2/3">
           <h1 className="section-title">Full-stack applications developer</h1>
           <p className="mb-5 text-2xl hover:text-3xl">Hey there ! 👋🏼</p>
           <p>I'm Anne-Gaëlle,</p>
@@ -95,11 +82,13 @@ export default function Home() {
             development.
           </p>
         </div>
-        <Image
-          src={profilePicture}
-          alt="profile-picture"
-          className="rounded-full w-3xs border-2 border-tile_b hover:border-main_b"
-        />
+        <div className="border-2 shadow-lg shadow-tile_b border-tile_b hover:border-main_b hover:shadow-main_b rounded-full">
+          <Image
+            src={profilePicture}
+            alt="profile-picture"
+            className="rounded-full w-3xs"
+          />
+        </div>
       </section>
 
       {/*** About me ***/}
@@ -124,7 +113,7 @@ export default function Home() {
       {/*** My projects ***/}
       <section id="projects" className="section-container">
         <h1 className="section-title">My projects</h1>
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-x-4 gap-y-4 mt-4 mb-12 list-none">
+        <div className="grid grid-cols-1 lg:grid-cols-2  2xl:grid-cols-3 gap-x-4 gap-y-4 mt-4 mb-12 list-none">
           {projects.map((project) => (
             <CardProject
               key={project.id}
@@ -140,18 +129,27 @@ export default function Home() {
       {/*** My stack ***/}
       <section id="stack" className="section-container">
         <h1 className="section-title">My stack</h1>
-        <div className="flex gap-3 flex-col xl:flex-row">
+        {/* <div className="flex gap-3 flex-col xl:flex-row flex-wrap"> */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
           <div className="stack-container">
             <h3 className="card-title">Languages</h3>
-            <div className="flex flex-row gap-2">
+            <div className="cardTechno-container">
               {technoLanguages.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}
             </div>
           </div>
           <div className="stack-container">
+            <h3 className="card-title">DevOps</h3>
+            <div className="cardTechno-container">
+              {technoDevOps.map((techno) => (
+                <CardTechno key={techno.name} techno={techno} />
+              ))}
+            </div>
+          </div>
+          <div className="stack-container">
             <h3 className="card-title">Backend Developer</h3>
-            <div className="flex flex-row gap-2">
+            <div className="cardTechno-container">
               {technoBackend.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}
@@ -159,13 +157,16 @@ export default function Home() {
           </div>
           <div className="stack-container">
             <h3 className="card-title">Frontend Developer</h3>
-            <div className="flex flex-row gap-2">
+            <div className="cardTechno-container">
               {technoFrontend.map((techno) => (
                 <CardTechno key={techno.name} techno={techno} />
               ))}
             </div>
           </div>
         </div>
+      </section>
+      <section className="section-container text-sm text-main_text">
+        <p>Made with 💜 and 🍪 by Anne-Gaëlle</p>
       </section>
     </div>
   );
