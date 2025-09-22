@@ -11,7 +11,7 @@ import { LightModeContext } from "@/context/LightModeContext";
 
 export default function NavbarLateral({ className }: { className: string }) {
   const router = useRouter();
-  const { theme, toggleTheme } = useContext(LightModeContext);
+  const { toggleTheme } = useContext(LightModeContext);
 
   // TODO: fonctions à passer dans les props pour que le parent les définisse ? ou on va chercher le # ?
   function handleAboutMe() {

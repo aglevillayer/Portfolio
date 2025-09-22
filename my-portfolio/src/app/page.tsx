@@ -1,6 +1,10 @@
+"use client";
 import CardProject from "@/components/CardProject";
 import CardTechno from "@/components/CardTechno";
 import Image from "next/image";
+import { useContext } from "react";
+import { ITechno } from "./interfaces";
+import { LightModeContext } from "@/context/LightModeContext";
 import profilePicture from "../../public/profilePicture.png";
 import cssPicture from "../../public/technos/languages/css.svg";
 import htmlPicture from "../../public/technos/languages/html.svg";
@@ -14,30 +18,41 @@ import mongodbPicture from "../../public/technos/back/mongodb.svg";
 import postgresqlPicture from "../../public/technos/back/postgresql.svg";
 import apolloPicture from "../../public/technos/back/apollo.png";
 import dockerPicture from "../../public/technos/devops/docker.svg";
-import { ITechno } from "./interfaces";
+import ulteamsLightPicture from "../../public/projects/ulteams-light.png";
+import ulteamsDarkPicture from "../../public/projects/ulteams-dark.png";
+import portfolioDarkPicture from "../../public/projects/portfolio-dark.png";
+import portfolioLightPicture from "../../public/projects/portfolio-light.png";
+import wip20LightPicture from "../../public/projects/wip20Light.png";
+import wip20DarkPicture from "../../public/projects/wip20Dark.png";
 
 const projects = [
   {
-    id: 1,
     title: "Ulteams",
     description: "An app to manage your sport club",
-    jobs: ["Roles management", "mini-game"],
+    jobs: ["Roles management", "Mini-game", "Training presence"],
     stack: ["Keystone", "React", "ViteJS"],
+    finished: true,
+    imgLight: ulteamsLightPicture.src,
+    imgDark: ulteamsDarkPicture.src,
   },
   {
-    id: 2,
     title: "Portfolio",
     description: "A web site to show my skills and projects",
-    jobs: ["Development from scratch"],
+    jobs: ["Development from scratch", "Design", "Deployment"],
     stack: ["TypeScript", "NextJS", "Tailwind"],
+    finished: true,
+    imgLight: portfolioLightPicture.src,
+    imgDark: portfolioDarkPicture.src,
   },
   {
-    id: 3,
     title: "Ultifit",
     description:
       "An app to manage fitness preparation for ultimate athletes and others",
-    jobs: ["Development from scratch"],
+    jobs: ["Development from scratch", "Development in progress"],
     stack: ["Keystone", "React", "ViteJS"],
+    finished: false,
+    imgLight: wip20LightPicture.src,
+    imgDark: wip20DarkPicture.src,
   },
 ];
 
@@ -69,6 +84,7 @@ const technoFrontend: ITechno[] = [
 const technoDevOps: ITechno[] = [{ name: "Docker", img: dockerPicture.src }];
 
 export default function Home() {
+  const { theme } = useContext(LightModeContext);
   return (
     <div className="main-container">
       {/*** Introduction ***/}
@@ -114,13 +130,15 @@ export default function Home() {
       <section id="projects" className="section-container">
         <h1 className="section-title">My projects</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2  2xl:grid-cols-3 gap-x-4 gap-y-4 mt-4 mb-12 list-none">
-          {projects.map((project) => (
+          {projects.map((project, id) => (
             <CardProject
-              key={project.id}
+              key={id}
               title={project.title}
               description={project.description}
               jobs={project.jobs}
               stack={project.stack}
+              finished={project.finished}
+              img={theme === "dark" ? project.imgDark : project.imgLight}
             />
           ))}
         </div>

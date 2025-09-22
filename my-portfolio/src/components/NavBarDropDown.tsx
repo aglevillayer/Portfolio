@@ -8,7 +8,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 export default function NavBarDropDown() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { theme, toggleTheme } = useContext(LightModeContext);
+  const { toggleTheme } = useContext(LightModeContext);
 
   function toggleDropDownMenu() {
     setIsOpen(!isOpen);
