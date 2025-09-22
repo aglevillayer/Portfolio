@@ -21,22 +21,13 @@ export default function NavbarFooter({ className }: { className: string }) {
     <nav
       className={`${className} navbar border-t flex flex-row w-full fixed bottom-0 h-13`}
     >
-      <button
-        className="flex-1 hover:text-tile_text hover:text-2xl"
-        onClick={handleAboutMe}
-      >
+      <button className="navbar-menu-button flex-1" onClick={handleAboutMe}>
         About me
       </button>
-      <button
-        className="flex-1 hover:text-tile_text hover:text-2xl"
-        onClick={handleProjects}
-      >
+      <button className="navbar-menu-button flex-1" onClick={handleProjects}>
         Projects
       </button>
-      <button
-        className="flex-1 hover:text-tile_text hover:text-2xl"
-        onClick={handleStack}
-      >
+      <button className="navbar-menu-button flex-1" onClick={handleStack}>
         Stack
       </button>
     </nav>

@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
+@custom-variant light (&:where(.light, .light *));
+
 @theme {
-  /*** Color class ***/
+  /********** Dark theme **********/
   /* Background */
   --color-main_bg: var(--main-background);
   --color-navbar_bg: var(--navbar-background);
   --color-card_bg: var(--card-background);
   --color-tile_bg: var(--tile-background);
+  --color-gradient_from: var(--gradient-from);
+  --color-gradient_via: var(--gradient-via);
+  --color-gradient_to: var(--gradient-to);
   /* Border */
   --color-main_b: var(--main-border);
-  --color-light_main_b: var(--light-main-border);
+  --color-second_main_b: var(--second-main-border);
   --color-tile_b: var(--tile-border);
   --shadow-project_shadow: 0px 0px 30px rgba(217, 70, 239, 25);
   --shadow-techno_shadow: 0px 0px 15px rgba(217, 70, 239, 25);
@@ -19,7 +24,26 @@
   --color-tile_text: var(--tile-text);
   --color-navbar_text: var(--navbar-text);
   --color-main_text: var(--main-text);
-  /* Font */
+
+  /********** Light theme **********/
+  --color-light_main_bg: var(--light-main-background);
+  --color-light_navbar_bg: var(--light-navbar-background);
+  --color-light_card_bg: var(--light-card-background);
+  --color-light_tile_bg: var(--light-tile-background);
+  --color-light_gradient_from: var(--light-gradient-from);
+  --color-light_gradient_via: var(--light-gradient-via);
+  --color-light_gradient_to: var(--light-gradient-to);
+  /* Border */
+  --color-light_main_b: var(--light-main-border);
+  --color-light_second_main_b: var(--light-second-main-border);
+  --color-light_tile_b: var(--light-tile-border);
+  /* Text */
+  --color-light_card_title: var(--light-card-title);
+  --color-light_tile_text: var(--light-tile-text);
+  --color-light_navbar_text: var(--light-navbar-text);
+  --color-light_main_text: var(--light-main-text);
+
+  /********** Font class **********/
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   /* --font-inter: var(--font-inter); */
@@ -28,41 +52,62 @@
 @media (prefers-color-scheme: dark) {
   /* INFO: Variables CSS */
   :root {
+    /********** Dark theme **********/
     /** Background colors **/
     --main-background: #0d050e;
     --navbar-background: #0d0110;
     --card-background: #0d0110;
     --tile-background: #38123d;
 
+    --gradient-to: #0d0110;
+    --gradient-via: #211024;
+    --gradient-from: #38123d;
+
     /** Border color **/
     --main-border: #d946ef;
-    --light-main-border: #38123d;
+    --second-main-border: #38123d;
     --tile-border: #9b87f5;
 
     /** Text colors **/
     --card-title: #d946ef;
     --tile-text: #9b87f5;
     --main-text: #dccaf2;
+
+    /********** Light theme **********/
+    /** Background colors **/
+    --ligt-main-background: #e6ddf0;
+    --light-navbar-background: #dccaf2;
+    --light-card-background: #dccaf2;
+    --light-tile-background: #bdb2f0;
+
+    --light-gradient-to: #e6ddf0;
+    --light-gradient-via: #bcb4e9;
+    --light-gradient-from: #b185e0;
+
+    /** Border color **/
+    --light-main-border: #bc46ce;
+    --light-second-main-border: #bdb2f0;
+    --light-tile-border: #7a4df5;
+
+    /** Text colors **/
+    --light-card-title: #bc46ce;
+    --light-tile-text: #7a4df5;
+    --light-main-text: #2e053f;
   }
 }
 /* Containers */
 body {
-  @apply bg-main_bg text-main_text text-xl;
+  @apply text-xl bg-main_bg text-main_text light:bg-light_main_bg light:text-light_main_text;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .main-container {
-  @apply w-full mx-auto px-10 pt-10 pb-14 md:pl-75 xl:pl-85 xl:pr-30;
-  background: #38123d;
-  background: radial-gradient(circle, #38123d 0%, #211024 20%, #0d050e 50%);
+  @apply w-full mx-auto px-10 pt-10 pb-14 md:pl-75 xl:pl-85 xl:pr-30 bg-radial from-gradient_from from-0% via-gradient_via via-20% to-gradient_to to-50% light:from-light_gradient_from light:via-light_gradient_via light:to-light_gradient_to;
 }
-
 .section-container {
   @apply pt-20;
 }
-
 .stack-container {
-  @apply bg-card_bg pt-3 pb-8 px-5 rounded-2xl border-2 border-light_main_b flex-1/3 flex flex-col text-center items-center;
+  @apply bg-card_bg pt-3 pb-8 px-5 rounded-2xl border-2 border-second_main_b flex-1/3 flex flex-col text-center items-center light:bg-light_card_bg light:border-light_second_main_b;
 }
 .cardTechno-container {
   @apply flex flex-row flex-wrap justify-center gap-2;
@@ -70,7 +115,13 @@ body {
 
 /* Navbar */
 .navbar {
-  @apply border-main_b bg-navbar_bg;
+  @apply border-main_b bg-navbar_bg light:border-light_main_b light:bg-light_navbar_bg;
+}
+.navbar-menu-button {
+  @apply font-bold hover:text-tile_text hover:text-2xl light:hover:text-light_tile_text;
+}
+.navbar-contact {
+  @apply px-3 hover:text-tile_text hover:border-main_text light:hover:text-light_tile_text light:hover:border-light_main_text;
 }
 
 /* Text */
@@ -80,7 +131,6 @@ body {
   background-clip: text;
   color: transparent;
 }
-
 .card-title {
-  @apply text-card_title text-3xl mb-5 font-bold;
+  @apply text-card_title text-3xl mb-5 font-bold light:text-light_card_title;
 }

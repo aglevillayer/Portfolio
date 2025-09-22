@@ -15,21 +15,21 @@ export default function NavbarHeader({ className }: { className: string }) {
         <Link
           href="https://www.linkedin.com/in/aglevillayer/"
           target="_blank"
-          className="px-5 border-r hover:text-tile_text hover:border-main_text"
+          className="navbar-contact border-r"
         >
           <FaLinkedin size={25} />
         </Link>
         <Link
           href="https://github.com/aglevillayer"
           target="_blank"
-          className="px-5 border-r hover:text-tile_text hover:border-main_text"
+          className="navbar-contact border-r"
         >
           <FaGithub size={25} />
         </Link>
         <Link
           href="mailto:levillayer.ag@mail.com"
           target="_blank"
-          className="px-5 hover:text-tile_text"
+          className="navbar-contact"
         >
           <MdContactMail size={25} />
         </Link>

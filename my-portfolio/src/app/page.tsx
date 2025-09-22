@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section-container text-sm text-main_text flex flex-col md:flex-row justify-between gap-5">
+      <section className="section-container text-sm flex flex-col md:flex-row justify-between gap-5">
         <p>Made with 💜 and 🍪 by Anne-Gaëlle</p>
         <p>© 2025 All Rights Reserved</p>
       </section>

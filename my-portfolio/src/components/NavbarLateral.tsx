@@ -6,9 +6,12 @@ import { MdContactMail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { TbSunMoon } from "react-icons/tb";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { LightModeContext } from "@/context/LightModeContext";
 
 export default function NavbarLateral({ className }: { className: string }) {
   const router = useRouter();
+  const { theme, toggleTheme } = useContext(LightModeContext);
 
   // TODO: fonctions à passer dans les props pour que le parent les définisse ? ou on va chercher le # ?
   function handleAboutMe() {
@@ -26,7 +29,10 @@ export default function NavbarLateral({ className }: { className: string }) {
       className={`${className} navbar border-r fixed min-h-full p-10 text-center md:flex md:flex-col`}
     >
       <div className="flex flex-row w-full text-4xl mb-15 grow-1">
-        <button className="mx-auto hover:text-tile_text">
+        <button
+          className="mx-auto hover:text-tile_text light:hover:text-light_tile_text"
+          onClick={toggleTheme}
+        >
           <TbSunMoon />
         </button>
         <button className="mx-auto">🇬🇧</button>
@@ -34,30 +40,21 @@ export default function NavbarLateral({ className }: { className: string }) {
 
       <div className="flex flex-col grow-9">
         <div className="flex flex-col gap-y-3 mb-10">
-          <h1 className="text-xl text-card_title font-bold">
+          <h1 className="text-xl text-card_title font-bold light:text-light_card_title">
             Anne-Gaëlle Levillayer
           </h1>
-          <p className="text-sm text-tile_text">
+          <p className="text-sm text-tile_text light:text-light_tile_text">
             Full-stack applications developer
           </p>
         </div>
-        <div className="flex flex-col gap-y-5 font-bold text-xl grow">
-          <button
-            onClick={handleAboutMe}
-            className="hover:text-2xl hover:text-tile_text"
-          >
+        <div className="flex flex-col gap-y-5 text-xl grow">
+          <button onClick={handleAboutMe} className="navbar-menu-button">
             About me
           </button>
-          <button
-            onClick={handleProjects}
-            className="hover:text-2xl hover:text-tile_text"
-          >
+          <button onClick={handleProjects} className="navbar-menu-button">
             Projects
           </button>
-          <button
-            onClick={handleStack}
-            className="hover:text-2xl hover:text-tile_text"
-          >
+          <button onClick={handleStack} className="navbar-menu-button">
             Stack
           </button>
         </div>
@@ -65,21 +62,21 @@ export default function NavbarLateral({ className }: { className: string }) {
 
       <div className="flex flex-row w-full">
         <Link
-          className="mx-auto pr-4 border-r hover:text-tile_text hover:border-main_text"
+          className="navbar-contact border-r mx-auto"
           href="https://www.linkedin.com/in/aglevillayer/"
           target="_blank"
         >
           <FaLinkedin size={30} />
         </Link>
         <Link
-          className="mx-auto pr-4 border-r hover:text-tile_text hover:border-main_text"
+          className="navbar-contact border-r mx-auto"
           href="https://github.com/aglevillayer"
           target="_blank"
         >
           <FaGithub size={30} />
         </Link>
         <Link
-          className="mx-auto hover:text-tile_text"
+          className="navbar-contact mx-auto"
           href="mailto:levillayer.ag@mail.com"
           target="_blank"
         >

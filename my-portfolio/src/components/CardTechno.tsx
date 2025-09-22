@@ -8,7 +8,7 @@ export default function CardTechno({ techno }: { techno: ITechno }) {
 
   return (
     <div
-      className="border border-tile_b rounded-2xl bg-transparent hover:border-main_b hover:shadow-techno_shadow p-2 text-tile_text flex flex-col items-center w-22 h-20 text-xs hover:text-sm"
+      className="border border-tile_b light:border-light_tile_b rounded-2xl bg-transparent hover:border-main_b hover:shadow-techno_shadow p-2 text-tile_text light:text-light_tile_text flex flex-col items-center w-22 h-20 text-xs hover:text-sm"
       onClick={handleCardTechno}
     >
       <Image
