@@ -1,12 +1,12 @@
 "use client";
 
-import CardProject from "@/components/CardProject";
-import CardTechno from "@/components/CardTechno";
 import Image from "next/image";
 import { useContext } from "react";
 import { ITechno } from "./interfaces";
 import { LightModeContext } from "@/context/LightModeContext";
 import { FrModeContext } from "@/context/FrModeContext";
+import CardProject from "@/components/CardProject";
+import CardTechno from "@/components/CardTechno";
 import profilePicture from "../../public/profilePicture.png";
 import cssPicture from "../../public/technos/languages/css.svg";
 import htmlPicture from "../../public/technos/languages/html.svg";

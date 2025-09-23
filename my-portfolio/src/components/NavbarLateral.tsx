@@ -18,13 +18,13 @@ export default function NavbarLateral({ className }: { className: string }) {
   const { language, toggleLanguage } = useContext(FrModeContext);
 
   function handleAboutMe() {
-    router.push("#about-me");
+    router.push("/#about-me");
   }
   function handleProjects() {
-    router.push("#projects");
+    router.push("/#projects");
   }
   function handleStack() {
-    router.push("#stack");
+    router.push("/#stack");
   }
 
   return (
@@ -33,12 +33,15 @@ export default function NavbarLateral({ className }: { className: string }) {
     >
       <div className="flex flex-row w-full text-4xl mb-15 grow-1">
         <button
-          className="mx-auto hover:text-tile_text light:hover:text-light_tile_text"
+          className="mx-auto hover:text-tile_text light:hover:text-light_tile_text hover:cursor-pointer"
           onClick={toggleTheme}
         >
           <TbSunMoon />
         </button>
-        <button className="mx-auto" onClick={toggleLanguage}>
+        <button
+          className="mx-auto hover:cursor-pointer"
+          onClick={toggleLanguage}
+        >
           {language === "En" ? "🇫🇷" : "🇬🇧"}
         </button>
       </div>

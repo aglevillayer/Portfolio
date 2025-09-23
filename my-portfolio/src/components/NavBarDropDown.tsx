@@ -32,7 +32,7 @@ export default function NavBarDropDown() {
     <div className="relative flex content-center" ref={dropdownRef}>
       <button
         onClick={toggleDropDownMenu}
-        className="px-5 hover:text-tile_text light:hover:text-light_tile_text"
+        className="px-5 hover:text-tile_text light:hover:text-light_tile_text hover:cursor-pointer"
       >
         <IoSettingsOutline size={25} />
       </button>
@@ -40,12 +40,12 @@ export default function NavBarDropDown() {
         <div className="navbar border-br absolute top-9 w-[70px] rounded-br-3xl flex flex-col align-items">
           <button
             onClick={toggleTheme}
-            className="flex px-5 py-3 w-full text-center hover:text-tile_text light:hover:text-light_tile_text"
+            className="flex px-5 py-3 w-full text-center hover:text-tile_text light:hover:text-light_tile_text hover:cursor-pointer"
           >
             <TbSunMoon size={25} />
           </button>
           <button
-            className="flex px-5 py-3 w-full text-center text-[25px]"
+            className="flex px-5 py-3 w-full text-center text-[25px] hover:cursor-pointer"
             onClick={toggleLanguage}
           >
             {language === "En" ? "🇫🇷" : "🇬🇧"}

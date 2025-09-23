@@ -6,6 +6,9 @@ import wip20LightPicture from "../../public/projects/wip20Light.png";
 import wip20DarkPicture from "../../public/projects/wip20Dark.png";
 
 export const en = {
+  common: {
+    in_development: "Sorry, this page is in development",
+  },
   home_section: {
     title: "Full-stack applications developer",
     p: "I'm Anne-Gaëlle, engineer from INSA retrained in the web and mobile applications development",

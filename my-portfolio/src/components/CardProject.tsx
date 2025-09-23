@@ -2,6 +2,7 @@
 
 import TileTechno from "./TileTechno";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { TbProgressCheck } from "react-icons/tb";
 
@@ -20,8 +21,17 @@ export default function CardProject({
   finished: boolean;
   img: string;
 }) {
+  const router = useRouter();
+
+  function handleCard() {
+    router.push(`/projects/${title.toLowerCase()}`);
+  }
+
   return (
-    <div className="p-5 flex flex-col gap-3 border-2 border-second_main_b rounded-xl bg-navbar_bg hover:border-main_b hover:shadow-project_shadow light:bg-light_navbar_bg light:border-light_second_main_b">
+    <div
+      className="p-5 flex flex-col gap-3 border-2 border-second_main_b rounded-xl bg-navbar_bg hover:border-main_b hover:shadow-project_shadow light:bg-light_navbar_bg light:border-light_second_main_b hover:cursor-pointer"
+      onClick={handleCard}
+    >
       <div className="mr-5 grow flex-2/3">
         <div className="flex justify-between card-title">
           <p>{title}</p>

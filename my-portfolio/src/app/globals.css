@@ -118,7 +118,7 @@ body {
   @apply border-main_b bg-navbar_bg light:border-light_main_b light:bg-light_navbar_bg;
 }
 .navbar-menu-button {
-  @apply font-bold hover:text-tile_text hover:text-2xl light:hover:text-light_tile_text;
+  @apply font-bold hover:text-tile_text hover:text-2xl light:hover:text-light_tile_text hover:cursor-pointer;
 }
 .navbar-contact {
   @apply px-3 hover:text-tile_text hover:border-main_text light:hover:text-light_tile_text light:hover:border-light_main_text;
@@ -133,4 +133,9 @@ body {
 }
 .card-title {
   @apply text-card_title text-3xl mb-5 font-bold light:text-light_card_title;
+}
+.app-link {
+  background-image: linear-gradient(to top, #9b87f5, #d946ef);
+  background-clip: text;
+  color: transparent;
 }

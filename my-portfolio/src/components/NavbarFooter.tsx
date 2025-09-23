@@ -6,13 +6,13 @@ export default function NavbarFooter({ className }: { className: string }) {
   const router = useRouter();
 
   function handleAboutMe() {
-    router.push("#about-me");
+    router.push("/#about-me");
   }
   function handleProjects() {
-    router.push("#projects");
+    router.push("/#projects");
   }
   function handleStack() {
-    router.push("#stack");
+    router.push("/#stack");
   }
 
   //TODO: mettre des hover sur les boutons
