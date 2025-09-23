@@ -6,7 +6,7 @@ export default function page() {
       </section>
       <div>
         <p className="mb-5">Sorry, this page is in development</p>
-        <p>But in the meantime, you're on it! So enjoy and make a round!</p>
+        <p>{`But in the meantime, you're on it! So enjoy and make a round!`}</p>
       </div>
     </div>
   );
