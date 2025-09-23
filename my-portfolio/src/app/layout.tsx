@@ -3,6 +3,7 @@ import NavbarLateral from "@/components/NavbarLateral";
 import NavbarHeader from "@/components/NavbarHeader";
 import NavbarFooter from "@/components/NavbarFooter";
 import { LightModeProvider } from "@/context/LightModeContext";
+import { FrModeProvider } from "@/context/FrModeContext";
 
 export default function RootLayout({
   children,
@@ -17,12 +18,14 @@ export default function RootLayout({
 
       <body className="flex min-h-full">
         <LightModeProvider>
-          <NavbarHeader className="md:hidden" />
-          <main className="grow flex flex-row">
-            <NavbarLateral className="hidden md:block w-3xs mr-10" />
-            <div>{children}</div>
-          </main>
-          <NavbarFooter className="md:hidden" />
+          <FrModeProvider>
+            <NavbarHeader className="md:hidden" />
+            <main className="grow flex flex-row">
+              <NavbarLateral className="hidden md:block w-3xs mr-10" />
+              <div>{children}</div>
+            </main>
+            <NavbarFooter className="md:hidden" />
+          </FrModeProvider>
         </LightModeProvider>
       </body>
     </html>

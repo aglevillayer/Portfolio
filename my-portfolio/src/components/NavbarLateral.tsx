@@ -8,12 +8,15 @@ import { TbSunMoon } from "react-icons/tb";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { LightModeContext } from "@/context/LightModeContext";
+import { FrModeContext } from "@/context/FrModeContext";
+import { en } from "@/translation/en";
+import { fr } from "@/translation/fr";
 
 export default function NavbarLateral({ className }: { className: string }) {
   const router = useRouter();
   const { toggleTheme } = useContext(LightModeContext);
+  const { language, toggleLanguage } = useContext(FrModeContext);
 
-  // TODO: fonctions à passer dans les props pour que le parent les définisse ? ou on va chercher le # ?
   function handleAboutMe() {
     router.push("#about-me");
   }
@@ -35,7 +38,9 @@ export default function NavbarLateral({ className }: { className: string }) {
         >
           <TbSunMoon />
         </button>
-        <button className="mx-auto">🇬🇧</button>
+        <button className="mx-auto" onClick={toggleLanguage}>
+          {language === "En" ? "🇫🇷" : "🇬🇧"}
+        </button>
       </div>
 
       <div className="flex flex-col grow-9">
@@ -44,18 +49,18 @@ export default function NavbarLateral({ className }: { className: string }) {
             Anne-Gaëlle Levillayer
           </h1>
           <p className="text-sm text-tile_text light:text-light_tile_text">
-            Full-stack applications developer
+            {language === "En" ? en.home_section.title : fr.home_section.title}
           </p>
         </div>
         <div className="flex flex-col gap-y-5 text-xl grow">
           <button onClick={handleAboutMe} className="navbar-menu-button">
-            About me
+            {language === "En" ? en.navbar.about_me : fr.navbar.about_me}
           </button>
           <button onClick={handleProjects} className="navbar-menu-button">
-            Projects
+            {language === "En" ? en.navbar.projects : fr.navbar.projects}
           </button>
           <button onClick={handleStack} className="navbar-menu-button">
-            Stack
+            {language === "En" ? en.navbar.stack : fr.navbar.stack}
           </button>
         </div>
       </div>
